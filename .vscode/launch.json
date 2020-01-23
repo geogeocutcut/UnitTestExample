@@ -9,9 +9,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/SocieteApi/bin/Debug/netcoreapp3.1/SocieteApi.dll",
+            "program": "${workspaceFolder}/ApplicationApi/bin/Debug/netcoreapp3.1/ApplicationApi.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/SocieteApi",
+            "cwd": "${workspaceFolder}/ApplicationApi",
             "stopAtEntry": false,
             "serverReadyAction": {
                 "action": "openExternally",
