@@ -10,11 +10,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using SocieteApi.DalManager;
-using SocieteApi.DalManager.Repository;
-using SocieteApi.Exceptions;
+using ApplicationApi.DalManager;
+using ApplicationApi.DalManager.Repository;
+using ApplicationApi.Exceptions;
 
-namespace SocieteApi
+namespace ApplicationApi
 {
     public class Startup
     {
@@ -28,8 +28,8 @@ namespace SocieteApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<NHibernateHelper>();
-            services.AddScoped<SocieteRepository>();
+            services.AddScoped<UnitOfWorkNH>();
+            services.AddScoped<SocieteRepositoryNH>();
             services.AddControllers();
         }
 

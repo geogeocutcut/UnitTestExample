@@ -1,6 +1,6 @@
 using System;
 
-namespace SocieteApi.Model
+namespace ApplicationApi.Model
 {
     public class Societe
     {

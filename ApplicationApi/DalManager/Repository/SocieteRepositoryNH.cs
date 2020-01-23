@@ -1,16 +1,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using NHibernate;
-using SocieteApi.Model;
+using ApplicationApi.Model;
 
-namespace SocieteApi.DalManager.Repository
+namespace ApplicationApi.DalManager.Repository
 {
-    public class SocieteRepository 
+    public class SocieteRepositoryNH 
     {
         private ISession _nhsession;
-        public SocieteRepository(NHibernateHelper nHibernateHelper) 
+        public SocieteRepositoryNH(UnitOfWorkNH uow) 
         {
-            _nhsession=nHibernateHelper.NhSession;
+            _nhsession=uow.NhSession;
         }
     
         public IEnumerable<Societe> GetAll()
