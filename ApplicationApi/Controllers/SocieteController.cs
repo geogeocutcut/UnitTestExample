@@ -4,11 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using SocieteApi.DalManager.Repository;
-using SocieteApi.Exceptions;
-using SocieteApi.Model;
+using ApplicationApi.DalManager.Repository;
+using ApplicationApi.Exceptions;
+using ApplicationApi.Model;
 
-namespace SocieteApi.Controllers
+namespace ApplicationApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -16,9 +16,9 @@ namespace SocieteApi.Controllers
     {
 
         private readonly ILogger<SocieteController> _logger;
-        private SocieteRepository _repo;
+        private SocieteRepositoryNH _repo;
 
-        public SocieteController(ILogger<SocieteController> logger,SocieteRepository repo)
+        public SocieteController(ILogger<SocieteController> logger,SocieteRepositoryNH repo)
         {
             _logger = logger;
             _repo=repo;
@@ -100,6 +100,12 @@ namespace SocieteApi.Controllers
         [HttpPut("{id}")]
         public Societe Put(Guid id, [FromBody] Societe societe)
         {
+            var dataToUpdate = _repo.GetById(societe.Id);
+            if(dataToUpdate==null)
+            {
+                throw new BusinessException("NO_VALID_DATA","La société n'existe pas.");
+            }
+            
             // validation name
             if(string.IsNullOrEmpty(societe.Nom) || string.IsNullOrWhiteSpace(societe.Nom))
             {
@@ -150,8 +156,11 @@ namespace SocieteApi.Controllers
             {
                 throw new BusinessException("NO_VALID_DATA","Le numéro Siret est non valide");
             }
-            _repo.Update(societe);
-            return societe;
+
+            dataToUpdate.Nom=societe.Nom;
+            dataToUpdate.Siret=societe.Siret;
+            _repo.Update(dataToUpdate);
+            return dataToUpdate;
         }
 
         [HttpDelete("{id}")]

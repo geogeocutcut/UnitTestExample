@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NHibernate;
 using ApplicationApi.Model;
+using System;
 
 namespace ApplicationApi.DalManager.Repository
 {
@@ -17,6 +18,12 @@ namespace ApplicationApi.DalManager.Repository
         {
             return _nhsession.Query<Societe>().ToList();
         }
+        
+        public Societe GetById(Guid id)
+        {
+            return _nhsession.Get<Societe>(id);
+        }
+
         public Societe Save(Societe soc)
         {
             using (var tx = _nhsession.BeginTransaction()) {

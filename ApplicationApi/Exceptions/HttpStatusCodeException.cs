@@ -1,7 +1,7 @@
 using System;
 using Newtonsoft.Json.Linq;
 
-namespace SocieteApi.Exceptions
+namespace ApplicationApi.Exceptions
 {
     public class HttpStatusCodeException : Exception
     {

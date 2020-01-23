@@ -1,6 +1,6 @@
 using System;
 
-namespace SocieteApi.Exceptions
+namespace ApplicationApi.Exceptions
 {
     public class BusinessException: Exception
     {

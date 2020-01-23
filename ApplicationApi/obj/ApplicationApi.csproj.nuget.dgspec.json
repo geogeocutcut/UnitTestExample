@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\GitPerso\\TestUnitaire\\SocieteApi\\SocieteApi.csproj": {}
+    "E:\\GitPerso\\TestUnitaire\\ApplicationApi\\ApplicationApi.csproj": {}
   },
   "projects": {
-    "E:\\GitPerso\\TestUnitaire\\SocieteApi\\SocieteApi.csproj": {
+    "E:\\GitPerso\\TestUnitaire\\ApplicationApi\\ApplicationApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\GitPerso\\TestUnitaire\\SocieteApi\\SocieteApi.csproj",
-        "projectName": "SocieteApi",
-        "projectPath": "E:\\GitPerso\\TestUnitaire\\SocieteApi\\SocieteApi.csproj",
+        "projectUniqueName": "E:\\GitPerso\\TestUnitaire\\ApplicationApi\\ApplicationApi.csproj",
+        "projectName": "ApplicationApi",
+        "projectPath": "E:\\GitPerso\\TestUnitaire\\ApplicationApi\\ApplicationApi.csproj",
         "packagesPath": "C:\\Users\\lefevreg\\.nuget\\packages\\",
-        "outputPath": "E:\\GitPerso\\TestUnitaire\\SocieteApi\\obj\\",
+        "outputPath": "E:\\GitPerso\\TestUnitaire\\ApplicationApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

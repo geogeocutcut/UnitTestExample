@@ -312,10 +312,10 @@
           "WindowsBase": "4.0.0.0"
         },
         "runtime": {
-          "ApplicationApinApi.dll": {}
+          "ApplicationApi.dll": {}
         },
         "compile": {
-          "ApplicationApinApi.dll": {}
+          "ApplicationApi.dll": {}
         }
       },
       "Antlr3.Runtime/3.5.1": {
@@ -3248,7 +3248,7 @@
     }
   },
   "libraries": {
-    "ApplicationApinApi/1.0.0": {
+    "ApplicationApi/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

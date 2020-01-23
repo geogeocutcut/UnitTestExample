@@ -1,7 +1,8 @@
 using FluentNHibernate.Mapping;
-using SocieteApi.Model;
+using ApplicationApi.Model;
 
-namespace SocieteApi.DalManager.Mapping
+
+namespace ApplicationApi.DalManager.Mapping
 {
     public class SocieteMap: ClassMap<Societe>
     {

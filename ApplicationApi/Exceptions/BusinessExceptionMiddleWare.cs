@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 
 using Newtonsoft.Json.Linq;
-namespace SocieteApi.Exceptions
+namespace ApplicationApi.Exceptions
 {
     public class BusinessExceptionMiddleWare
     {

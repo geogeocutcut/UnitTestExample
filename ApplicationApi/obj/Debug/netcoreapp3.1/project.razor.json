@@ -1,5 +1,5 @@
 {
-  "FilePath": "e:\\GitPerso\\TestUnitaire\\SocieteApi\\SocieteApi.csproj",
+  "FilePath": "e:\\GitPerso\\TestUnitaire\\ApplicationApi\\ApplicationApi.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -20498,7 +20498,7 @@
     ],
     "CSharpLanguageVersion": 800
   },
-  "RootNamespace": "SocieteApi",
+  "RootNamespace": "ApplicationApi",
   "Documents": [],
   "SerializationFormat": "0.2"
 }
