@@ -9,9 +9,9 @@ namespace ApplicationBusiness.DalManager.Repository
     public class SocieteRepositoryNH 
     {
         private ISession _nhsession;
-        public SocieteRepositoryNH(UnitOfWorkNH uow) 
+        public SocieteRepositoryNH(ISession nhsession) 
         {
-            _nhsession=uow.NhSession;
+            _nhsession= nhsession;
         }
     
         public IEnumerable<Societe> GetAll()

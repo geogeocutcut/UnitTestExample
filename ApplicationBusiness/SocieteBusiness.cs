@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using ApplicationBusiness.DalManager;
 using ApplicationBusiness.DalManager.Repository;
 using ApplicationBusiness.Exceptions;
 using ApplicationBusiness.Model;
@@ -9,16 +10,17 @@ namespace ApplicationBusiness
 {
     public class SocieteBusiness
     {
-        private SocieteRepositoryNH _repo;
+        private UnitOfWorkNH _uow;
 
-        public SocieteBusiness(SocieteRepositoryNH repo)
+        public SocieteBusiness(UnitOfWorkNH uow)
         {
-            _repo=repo;
+            _uow = uow;
         }
 
         public IEnumerable<Societe> GetAll()
         {
-            return _repo.GetAll();
+            var repo=_uow.GetRepository<SocieteRepositoryNH>();
+            return repo.GetAll();
         }
 
         public Societe Get(Guid id)
@@ -32,24 +34,24 @@ namespace ApplicationBusiness
             // validation name
             if(string.IsNullOrEmpty(societe.Nom) || string.IsNullOrWhiteSpace(societe.Nom))
             {
-                throw new BusinessException("NO_VALID_DATA","Le nom est obligatoire");
+                throw new BusinessException(BusinessExceptionCode.NO_VALIDE_NOM,"Le nom est obligatoire");
             }
 
             // validation siret
             // verification not nulle
             if(string.IsNullOrEmpty(societe.Siret) || string.IsNullOrWhiteSpace(societe.Siret))
             {
-                throw new BusinessException("NO_VALID_DATA","Le numéro Siret est obligatoire");
+                throw new BusinessException(BusinessExceptionCode.NO_VALIDE_SIRET, "Le numéro Siret est obligatoire");
             }
             // verification longueur 14
             if(societe.Siret.Count()!=14)
             {
-                throw new BusinessException("NO_VALID_DATA","Le numéro Siret est non valide");
+                throw new BusinessException(BusinessExceptionCode.NO_VALIDE_SIRET, "Le numéro Siret est non valide");
             }
             // verification int 
             if(!Int64.TryParse(societe.Siret,out Int64 res))
             {
-                throw new BusinessException("NO_VALID_DATA","Le numéro Siret est non valide");
+                throw new BusinessException(BusinessExceptionCode.NO_VALIDE_SIRET,"Le numéro Siret est non valide");
             }
             // Validation de Luhn
             int total = 0;
@@ -77,9 +79,11 @@ namespace ApplicationBusiness
             /** Si la somme est un multiple de 10 alors le SIRET est valide */
             if ((total % 10) != 0) 
             {
-                throw new BusinessException("NO_VALID_DATA","Le numéro Siret est non valide");
+                throw new BusinessException(BusinessExceptionCode.NO_VALIDE_SIRET,"Le numéro Siret est non valide");
             }
-            _repo.Save(societe);
+
+            var repo = _uow.GetRepository<SocieteRepositoryNH>();
+            repo.Save(societe);
             return societe;
 
             // 
@@ -87,33 +91,35 @@ namespace ApplicationBusiness
 
         public Societe Update(Societe societe)
         {
-            var dataToUpdate = _repo.GetById(societe.Id);
+
+            var repo = _uow.GetRepository<SocieteRepositoryNH>();
+            var dataToUpdate = repo.GetById(societe.Id);
             if(dataToUpdate==null)
             {
-                throw new BusinessException("NO_VALID_DATA","La société n'existe pas.");
+                throw new BusinessException(BusinessExceptionCode.NO_VALIDE_SIRET,"La société n'existe pas.");
             }
 
             // validation name
             if(string.IsNullOrEmpty(societe.Nom) || string.IsNullOrWhiteSpace(societe.Nom))
             {
-                throw new BusinessException("NO_VALID_DATA","Le nom est obligatoire");
+                throw new BusinessException(BusinessExceptionCode.NO_VALIDE_SIRET,"Le nom est obligatoire");
             }
 
             // validation siret
             // verification not nulle
             if(string.IsNullOrEmpty(societe.Siret) || string.IsNullOrWhiteSpace(societe.Siret))
             {
-                throw new BusinessException("NO_VALID_DATA","Le numéro Siret est obligatoire");
+                throw new BusinessException(BusinessExceptionCode.NO_VALIDE_SIRET,"Le numéro Siret est obligatoire");
             }
             // verification longueur 14
             if(societe.Siret.Count()!=14)
             {
-                throw new BusinessException("NO_VALID_DATA","Le numéro Siret est non valide");
+                throw new BusinessException(BusinessExceptionCode.NO_VALIDE_SIRET,"Le numéro Siret est non valide");
             }
             // verification int 
             if(!Int64.TryParse(societe.Siret,out Int64 res))
             {
-                throw new BusinessException("NO_VALID_DATA","Le numéro Siret est non valide");
+                throw new BusinessException(BusinessExceptionCode.NO_VALIDE_SIRET,"Le numéro Siret est non valide");
             }
             // Validation de Luhn
             int total = 0;
@@ -141,13 +147,13 @@ namespace ApplicationBusiness
             /** Si la somme est un multiple de 10 alors le SIRET est valide */
             if ((total % 10) != 0) 
             {
-                throw new BusinessException("NO_VALID_DATA","Le numéro Siret est non valide");
+                throw new BusinessException(BusinessExceptionCode.NO_VALIDE_SIRET,"Le numéro Siret est non valide");
             }
 
 
             dataToUpdate.Nom=societe.Nom;
             dataToUpdate.Siret=societe.Siret;
-            _repo.Update(dataToUpdate);
+            repo.Update(dataToUpdate);
             return dataToUpdate;
         }
 

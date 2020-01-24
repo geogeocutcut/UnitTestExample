@@ -2,11 +2,17 @@ using System;
 
 namespace ApplicationBusiness.Exceptions
 {
+
+    public enum BusinessExceptionCode
+    {
+        NO_VALIDE_SIRET,
+        NO_VALIDE_NOM
+    }
     public class BusinessException: Exception
     {
-        public string  CodeErreur { get; set; }
+        public BusinessExceptionCode CodeErreur { get; set; }
 
-        public BusinessException(string code,string message):base(message)
+        public BusinessException(BusinessExceptionCode code,string message):base(message)
         {
             CodeErreur=code;
         }
