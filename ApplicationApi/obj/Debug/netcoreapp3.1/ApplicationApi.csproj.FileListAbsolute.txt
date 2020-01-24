@@ -1,7 +1,8 @@
 E:\GitPerso\TestUnitaire\ApplicationApi\bin\Debug\netcoreapp3.1\appsettings.Development.json
-E:\GitPerso\TestUnitaire\ApplicationApi\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 E:\GitPerso\TestUnitaire\ApplicationApi\bin\Debug\netcoreapp3.1\appsettings.json
+E:\GitPerso\TestUnitaire\ApplicationApi\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 E:\GitPerso\TestUnitaire\ApplicationApi\bin\Debug\netcoreapp3.1\ApplicationApi.exe
+E:\GitPerso\TestUnitaire\ApplicationApi\bin\Debug\netcoreapp3.1\hibernate.cfg.xml
 E:\GitPerso\TestUnitaire\ApplicationApi\bin\Debug\netcoreapp3.1\ApplicationApi.deps.json
 E:\GitPerso\TestUnitaire\ApplicationApi\bin\Debug\netcoreapp3.1\ApplicationApi.runtimeconfig.json
 E:\GitPerso\TestUnitaire\ApplicationApi\bin\Debug\netcoreapp3.1\ApplicationApi.runtimeconfig.dev.json
@@ -54,4 +55,3 @@ E:\GitPerso\TestUnitaire\ApplicationApi\obj\Debug\netcoreapp3.1\ApplicationApi.R
 E:\GitPerso\TestUnitaire\ApplicationApi\obj\Debug\netcoreapp3.1\ApplicationApi.csproj.CopyComplete
 E:\GitPerso\TestUnitaire\ApplicationApi\obj\Debug\netcoreapp3.1\ApplicationApi.dll
 E:\GitPerso\TestUnitaire\ApplicationApi\obj\Debug\netcoreapp3.1\ApplicationApi.pdb
-E:\GitPerso\TestUnitaire\ApplicationApi\bin\Debug\netcoreapp3.1\hibernate.cfg.xml
