@@ -1,14 +1,14 @@
 using FluentNHibernate.Cfg;
-using FluentNHibernate.Cfg.Db;
 using NHibernate;
-using NHibernate.Tool.hbm2ddl;
 using ApplicationBusiness.DalManager.Mapping;
-using System.Data.SQLite;
+using System.Collections.Generic;
+using ApplicationBusiness.DalManager.Repository;
 
 namespace ApplicationBusiness.DalManager
 {
     public class UnitOfWorkNH 
     {
+        private Dictionary<object, object> _repositories;
         private readonly object _lockObject = new object();
         private static ISessionFactory _sessionFactory;
 
@@ -33,6 +33,7 @@ namespace ApplicationBusiness.DalManager
             {
                 CreateSessionFactory();
             }
+            _repositories = new Dictionary<object, object>();
         }
     
         private void CreateSessionFactory()
@@ -49,6 +50,24 @@ namespace ApplicationBusiness.DalManager
                     _sessionFactory = fluentConfiguration.BuildSessionFactory();
                 }
             }
+        }
+        public TRepository GetRepository<TRepository>()
+        {
+            object repo = null;
+            if (_repositories.ContainsKey(typeof(TRepository)))
+            {
+                repo = _repositories[typeof(TRepository)];
+            }
+            else
+            {
+                if (typeof(TRepository) == typeof(SocieteRepositoryNH))
+                {
+                    repo = new SocieteRepositoryNH(NhSession);
+                    _repositories[typeof(TRepository)] = repo;
+                }
+            }
+            return (TRepository)repo;
+
         }
 
         public void Dispose()

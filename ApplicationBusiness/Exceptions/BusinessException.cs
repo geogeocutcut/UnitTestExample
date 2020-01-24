@@ -4,6 +4,7 @@ namespace ApplicationBusiness.Exceptions
 {
     public enum BusinessExceptionCode
     {
+        NO_VALIDE_SOCIETE,
         NO_VALIDE_SIRET,
         NO_VALIDE_NOM
     }

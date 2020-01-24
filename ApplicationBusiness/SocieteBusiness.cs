@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using ApplicationBusiness.DalManager;
 using ApplicationBusiness.DalManager.Repository;
 using ApplicationBusiness.Exceptions;
 using ApplicationBusiness.Model;
@@ -9,16 +10,17 @@ namespace ApplicationBusiness
 {
     public class SocieteBusiness
     {
-        private SocieteRepositoryNH _repo;
+        private UnitOfWorkNH _uow;
 
-        public SocieteBusiness(SocieteRepositoryNH repo)
+        public SocieteBusiness(UnitOfWorkNH uow)
         {
-            _repo=repo;
+            _uow = uow;
         }
 
         public IEnumerable<Societe> GetAll()
         {
-            return _repo.GetAll();
+            var repo = _uow.GetRepository<SocieteRepositoryNH>();
+            return repo.GetAll();
         }
 
         public Societe Get(Guid id)
@@ -79,23 +81,27 @@ namespace ApplicationBusiness
             {
                 throw new BusinessException(BusinessExceptionCode.NO_VALIDE_SIRET, "Le numéro Siret est non valide");
             }
-            _repo.Save(societe);
+
+            var repo = _uow.GetRepository<SocieteRepositoryNH>();
+            repo.Save(societe);
             return societe;
 
         }
 
         public Societe Update(Societe societe)
         {
-            var dataToUpdate = _repo.GetById(societe.Id);
+
+            var repo = _uow.GetRepository<SocieteRepositoryNH>();
+            var dataToUpdate = repo.GetById(societe.Id);
             if(dataToUpdate==null)
             {
-                throw new BusinessException(BusinessExceptionCode.NO_VALIDE_NOM, "La société n'existe pas.");
+                throw new BusinessException(BusinessExceptionCode.NO_VALIDE_SOCIETE, "La société n'existe pas.");
             }
 
             // validation name
             if(string.IsNullOrEmpty(societe.Nom) || string.IsNullOrWhiteSpace(societe.Nom))
             {
-                throw new BusinessException(BusinessExceptionCode.NO_VALIDE_SIRET, "Le nom est obligatoire");
+                throw new BusinessException(BusinessExceptionCode.NO_VALIDE_NOM, "Le nom est obligatoire");
             }
 
             // validation siret
@@ -146,7 +152,7 @@ namespace ApplicationBusiness
 
             dataToUpdate.Nom=societe.Nom;
             dataToUpdate.Siret=societe.Siret;
-            _repo.Update(dataToUpdate);
+            repo.Update(dataToUpdate);
             return dataToUpdate;
         }
 
