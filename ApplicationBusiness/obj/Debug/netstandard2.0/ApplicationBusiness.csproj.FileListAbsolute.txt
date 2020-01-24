@@ -1,7 +1,6 @@
 E:\GitPerso\TestUnitaire\ApplicationBusiness\bin\Debug\netstandard2.0\ApplicationBusiness.deps.json
 E:\GitPerso\TestUnitaire\ApplicationBusiness\bin\Debug\netstandard2.0\ApplicationBusiness.dll
 E:\GitPerso\TestUnitaire\ApplicationBusiness\bin\Debug\netstandard2.0\ApplicationBusiness.pdb
-E:\GitPerso\TestUnitaire\ApplicationBusiness\obj\Debug\netstandard2.0\ApplicationBusiness.csprojAssemblyReference.cache
 E:\GitPerso\TestUnitaire\ApplicationBusiness\obj\Debug\netstandard2.0\ApplicationBusiness.AssemblyInfoInputs.cache
 E:\GitPerso\TestUnitaire\ApplicationBusiness\obj\Debug\netstandard2.0\ApplicationBusiness.AssemblyInfo.cs
 E:\GitPerso\TestUnitaire\ApplicationBusiness\obj\Debug\netstandard2.0\ApplicationBusiness.dll
