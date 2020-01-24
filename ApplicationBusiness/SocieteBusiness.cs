@@ -96,13 +96,13 @@ namespace ApplicationBusiness
             var dataToUpdate = repo.GetById(societe.Id);
             if(dataToUpdate==null)
             {
-                throw new BusinessException(BusinessExceptionCode.NO_VALIDE_SIRET,"La société n'existe pas.");
+                throw new BusinessException(BusinessExceptionCode.NO_VALIDE_SOCIETE,"La société n'existe pas.");
             }
 
             // validation name
             if(string.IsNullOrEmpty(societe.Nom) || string.IsNullOrWhiteSpace(societe.Nom))
             {
-                throw new BusinessException(BusinessExceptionCode.NO_VALIDE_SIRET,"Le nom est obligatoire");
+                throw new BusinessException(BusinessExceptionCode.NO_VALIDE_NOM,"Le nom est obligatoire");
             }
 
             // validation siret
