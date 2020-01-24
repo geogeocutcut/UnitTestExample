@@ -70,10 +70,10 @@ namespace ApplicationBusiness
                 throw new BusinessException(BusinessExceptionCode.NO_VALIDE_SIRET, "Le numéro Siret est obligatoire");
             }
             // verification longueur 14
-            //if (societe.Siret.Count() != 14)
-            //{
-            //    throw new BusinessException(BusinessExceptionCode.NO_VALIDE_SIRET, "Le numéro Siret est non valide");
-            //}
+            if (societe.Siret.Count() != 14)
+            {
+                throw new BusinessException(BusinessExceptionCode.NO_VALIDE_SIRET, "Le numéro Siret est non valide");
+            }
             // verification int 
             if (!Int64.TryParse(societe.Siret, out Int64 res))
             {
