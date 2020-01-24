@@ -20,7 +20,7 @@ namespace XUnitTestApplicationBusiness
 
 
         [Fact]
-        public void AddWithNomNull()
+        public void Test01_AddWithNomNull()
         {
             var soc = new Societe {
                                 Nom = null,
@@ -30,49 +30,17 @@ namespace XUnitTestApplicationBusiness
             Assert.Equal(BusinessExceptionCode.NO_VALIDE_NOM, exception.CodeErreur);
         }
 
-        [Fact]
-        public void AddWithSiretNull()
+        [Theory]
+        [InlineData(null)]
+        [InlineData("12132131")]
+        [InlineData("1234567890abcd")]
+        [InlineData("12345678901234")]
+        public void Test02_AddWithBadSiret(string siret)
         {
             var soc = new Societe
             {
                 Nom = "EARL Lefevre HM",
-                Siret = null
-            };
-            var exception = Assert.Throws<BusinessException>(() => _serv.Add(soc));
-            Assert.Equal(BusinessExceptionCode.NO_VALIDE_SIRET, exception.CodeErreur);
-        }
-
-        [Fact]
-        public void AddWithBadLengthSiret()
-        {
-            var soc = new Societe
-            {
-                Nom = "EARL Lefevre HM",
-                Siret = "12132131"
-            };
-            var exception = Assert.Throws<BusinessException>(() => _serv.Add(soc));
-            Assert.Equal(BusinessExceptionCode.NO_VALIDE_SIRET, exception.CodeErreur);
-        }
-
-        [Fact]
-        public void AddWithBadCharacterSiret()
-        {
-            var soc = new Societe
-            {
-                Nom = "EARL Lefevre HM",
-                Siret = "1234567890abcd"
-            };
-            var exception = Assert.Throws<BusinessException>(() => _serv.Add(soc));
-            Assert.Equal(BusinessExceptionCode.NO_VALIDE_SIRET, exception.CodeErreur);
-        }
-
-        [Fact]
-        public void AddWithBadSiret()
-        {
-            var soc = new Societe
-            {
-                Nom = "EARL Lefevre HM",
-                Siret = "12345678901234"
+                Siret = siret
             };
             var exception = Assert.Throws<BusinessException>(() => _serv.Add(soc));
             Assert.Equal(BusinessExceptionCode.NO_VALIDE_SIRET, exception.CodeErreur);
