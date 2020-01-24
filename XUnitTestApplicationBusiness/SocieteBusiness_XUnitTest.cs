@@ -32,7 +32,7 @@ namespace XUnitTestApplicationBusiness
 
         [Theory]
         [InlineData(null)]
-        [InlineData("12132131")]
+        [InlineData("12122131")]
         [InlineData("1234567890abcd")]
         [InlineData("12345678901234")]
         public void Test02_AddWithBadSiret(string siret)
