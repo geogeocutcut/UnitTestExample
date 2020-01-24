@@ -9,7 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ApplicationBusiness\ApplicationBusiness.Services.csproj" />
+    <ProjectReference Include="..\ApplicationBusiness.IDalManager\ApplicationBusiness.IDalManager.csproj" />
+    <ProjectReference Include="..\ApplicationBusiness.Model\ApplicationBusiness.Model.csproj" />
   </ItemGroup>
 
 </Project>
