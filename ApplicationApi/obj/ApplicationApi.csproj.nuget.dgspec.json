@@ -32,6 +32,9 @@
             "projectReferences": {
               "E:\\GitPerso\\TestUnitaire\\ApplicationBusiness\\ApplicationBusiness.csproj": {
                 "projectPath": "E:\\GitPerso\\TestUnitaire\\ApplicationBusiness\\ApplicationBusiness.csproj"
+              },
+              "E:\\GitPerso\\TestUnitaire\\ApplicationDal\\ApplicationDal.csproj": {
+                "projectPath": "E:\\GitPerso\\TestUnitaire\\ApplicationDal\\ApplicationDal.csproj"
               }
             }
           }
@@ -121,27 +124,11 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
-            "FluentNHibernate": {
-              "target": "Package",
-              "version": "[2.1.2, )"
-            },
-            "Microsoft.Extensions.Configuration": {
-              "target": "Package",
-              "version": "[3.1.1, )"
-            },
-            "MySql.Data": {
-              "target": "Package",
-              "version": "[8.0.19, )"
-            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
-            },
-            "System.Data.SQLite": {
-              "target": "Package",
-              "version": "[1.0.112, )"
             }
           },
           "imports": [
@@ -154,6 +141,71 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\GitPerso\\TestUnitaire\\ApplicationDal\\ApplicationDal.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\GitPerso\\TestUnitaire\\ApplicationDal\\ApplicationDal.csproj",
+        "projectName": "ApplicationDal",
+        "projectPath": "E:\\GitPerso\\TestUnitaire\\ApplicationDal\\ApplicationDal.csproj",
+        "packagesPath": "C:\\Users\\lefevreg\\.nuget\\packages\\",
+        "outputPath": "E:\\GitPerso\\TestUnitaire\\ApplicationDal\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\lefevreg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "E:\\GitPerso\\TestUnitaire\\ApplicationBusiness\\ApplicationBusiness.csproj": {
+                "projectPath": "E:\\GitPerso\\TestUnitaire\\ApplicationBusiness\\ApplicationBusiness.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "FluentNHibernate": {
+              "target": "Package",
+              "version": "[2.1.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }

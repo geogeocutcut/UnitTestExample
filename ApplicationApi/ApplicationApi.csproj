@@ -3,16 +3,17 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="MySql.Data" Version="8.0.19"/>
-    <PackageReference Include="FluentNHibernate" Version="2.1.2"/>
-    <PackageReference Include="System.Data.SQLite" Version="1.0.112"/>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3"/>
+    <PackageReference Include="MySql.Data" Version="8.0.19" />
+    <PackageReference Include="FluentNHibernate" Version="2.1.2" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.112" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ApplicationBusiness\ApplicationBusiness.csproj" />
+    <ProjectReference Include="..\ApplicationDal\ApplicationDal.csproj" />
   </ItemGroup>
   
   <ItemGroup>
-    <None Include="hibernate.cfg.xml" CopyToOutputDirectory="Always"/>
+    <None Include="hibernate.cfg.xml" CopyToOutputDirectory="Always" />
   </ItemGroup>
 </Project>

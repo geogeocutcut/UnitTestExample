@@ -1,9 +1,8 @@
 using ApplicationBusiness;
-using ApplicationBusiness.DalManager;
 using ApplicationBusiness.Exceptions;
 using ApplicationBusiness.Model;
-using System;
 using Xunit;
+using XUnitTestApplicationBusiness.IDalMock.Fake;
 
 namespace XUnitTestApplicationBusiness
 {
@@ -14,7 +13,7 @@ namespace XUnitTestApplicationBusiness
 
         public SocieteBusiness_XUnitTest()
         {
-            var uow = new UnitOfWorkNH();
+            var uow = new UnitOfWorkFake();
             _serv = new SocieteBusiness(uow);
         }
 

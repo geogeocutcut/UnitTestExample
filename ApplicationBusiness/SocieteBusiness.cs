@@ -1,25 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ApplicationBusiness.DalManager;
-using ApplicationBusiness.DalManager.Repository;
 using ApplicationBusiness.Exceptions;
+using ApplicationBusiness.IBusiness;
+using ApplicationBusiness.IDalManager;
+using ApplicationBusiness.IDalManager.IRepositories;
 using ApplicationBusiness.Model;
 
 namespace ApplicationBusiness
 {
-    public class SocieteBusiness
+    public class SocieteBusiness: ISocieteBusiness
     {
-        private UnitOfWorkNH _uow;
+        private IUnitOfWork _uow;
 
-        public SocieteBusiness(UnitOfWorkNH uow)
+        public SocieteBusiness(IUnitOfWork uow)
         {
             _uow = uow;
         }
 
         public IEnumerable<Societe> GetAll()
         {
-            var repo=_uow.GetRepository<SocieteRepositoryNH>();
+            var repo=_uow.GetRepository<ISocieteRepository>();
             return repo.GetAll();
         }
 
@@ -82,7 +83,7 @@ namespace ApplicationBusiness
                 throw new BusinessException(BusinessExceptionCode.NO_VALIDE_SIRET,"Le numéro Siret est non valide");
             }
 
-            var repo = _uow.GetRepository<SocieteRepositoryNH>();
+            var repo = _uow.GetRepository<ISocieteRepository>();
             repo.Save(societe);
             return societe;
 
@@ -92,7 +93,7 @@ namespace ApplicationBusiness
         public Societe Update(Societe societe)
         {
 
-            var repo = _uow.GetRepository<SocieteRepositoryNH>();
+            var repo = _uow.GetRepository<ISocieteRepository>();
             var dataToUpdate = repo.GetById(societe.Id);
             if(dataToUpdate==null)
             {

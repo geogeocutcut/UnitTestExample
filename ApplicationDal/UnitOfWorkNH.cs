@@ -1,15 +1,14 @@
 using FluentNHibernate.Cfg;
-using FluentNHibernate.Cfg.Db;
 using NHibernate;
-using NHibernate.Tool.hbm2ddl;
 using ApplicationBusiness.DalManager.Mapping;
-using System.Data.SQLite;
 using System.Collections.Generic;
 using ApplicationBusiness.DalManager.Repository;
+using ApplicationBusiness.IDalManager;
+using ApplicationBusiness.IDalManager.IRepositories;
 
 namespace ApplicationBusiness.DalManager
 {
-    public class UnitOfWorkNH 
+    public class UnitOfWorkNH : IUnitOfWork
     {
         private Dictionary<object, object> _repositories;
 
@@ -38,7 +37,6 @@ namespace ApplicationBusiness.DalManager
                 CreateSessionFactory();
             }
             _repositories = new Dictionary<object, object>();
-            _repositories.Add(typeof(SocieteRepositoryNH), null);
         }
     
         private void CreateSessionFactory()
@@ -58,16 +56,20 @@ namespace ApplicationBusiness.DalManager
         }
         public TRepository GetRepository<TRepository>()
         {
-            var repo = _repositories[typeof(TRepository)];
-            if (repo == null)
+            object repo=null;
+            if (_repositories.ContainsKey(typeof(TRepository)))
             {
-                if(typeof(TRepository)== typeof(SocieteRepositoryNH))
+                repo = _repositories[typeof(TRepository)];
+            }
+            else
+            {
+                if(typeof(TRepository)== typeof(ISocieteRepository))
                 {
                     repo = new SocieteRepositoryNH(NhSession);
                     _repositories[typeof(TRepository)] = repo;
                 }
             }
-            return (TRepository)repo;
+            return (TRepository) repo;
 
         }
 

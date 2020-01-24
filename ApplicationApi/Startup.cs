@@ -1,7 +1,8 @@
 using ApplicationApi.Exceptions;
 using ApplicationBusiness;
 using ApplicationBusiness.DalManager;
-using ApplicationBusiness.DalManager.Repository;
+using ApplicationBusiness.IBusiness;
+using ApplicationBusiness.IDalManager;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -22,8 +23,8 @@ namespace ApplicationApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<UnitOfWorkNH>();
-            services.AddScoped<SocieteBusiness>();
+            services.AddScoped<IUnitOfWork,UnitOfWorkNH>();
+            services.AddScoped<ISocieteBusiness,SocieteBusiness>();
             services.AddControllers();
         }
 

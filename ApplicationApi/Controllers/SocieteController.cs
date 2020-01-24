@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ApplicationBusiness;
+using ApplicationBusiness.IBusiness;
 using ApplicationBusiness.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -13,9 +14,9 @@ namespace ApplicationApi.Controllers
     {
 
         private readonly ILogger<SocieteController> _logger;
-        private SocieteBusiness _serv;
+        private ISocieteBusiness _serv;
 
-        public SocieteController(ILogger<SocieteController> logger,SocieteBusiness serv)
+        public SocieteController(ILogger<SocieteController> logger,ISocieteBusiness serv)
         {
             _logger = logger;
             _serv=serv;

@@ -13,9 +13,6 @@ E:\GitPerso\TestUnitaire\ApplicationApi\bin\Debug\netcoreapp3.1\BouncyCastle.Cry
 E:\GitPerso\TestUnitaire\ApplicationApi\bin\Debug\netcoreapp3.1\FluentNHibernate.dll
 E:\GitPerso\TestUnitaire\ApplicationApi\bin\Debug\netcoreapp3.1\Google.Protobuf.dll
 E:\GitPerso\TestUnitaire\ApplicationApi\bin\Debug\netcoreapp3.1\Iesi.Collections.dll
-E:\GitPerso\TestUnitaire\ApplicationApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
-E:\GitPerso\TestUnitaire\ApplicationApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
-E:\GitPerso\TestUnitaire\ApplicationApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
 E:\GitPerso\TestUnitaire\ApplicationApi\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
 E:\GitPerso\TestUnitaire\ApplicationApi\bin\Debug\netcoreapp3.1\MySql.Data.dll
 E:\GitPerso\TestUnitaire\ApplicationApi\bin\Debug\netcoreapp3.1\Ubiety.Dns.Core.dll
@@ -55,3 +52,5 @@ E:\GitPerso\TestUnitaire\ApplicationApi\obj\Debug\netcoreapp3.1\ApplicationApi.R
 E:\GitPerso\TestUnitaire\ApplicationApi\obj\Debug\netcoreapp3.1\ApplicationApi.csproj.CopyComplete
 E:\GitPerso\TestUnitaire\ApplicationApi\obj\Debug\netcoreapp3.1\ApplicationApi.dll
 E:\GitPerso\TestUnitaire\ApplicationApi\obj\Debug\netcoreapp3.1\ApplicationApi.pdb
+E:\GitPerso\TestUnitaire\ApplicationApi\bin\Debug\netcoreapp3.1\ApplicationDal.dll
+E:\GitPerso\TestUnitaire\ApplicationApi\bin\Debug\netcoreapp3.1\ApplicationDal.pdb

@@ -92,39 +92,6 @@
           "lib/netstandard1.3/Microsoft.CSharp.dll": {}
         }
       },
-      "Microsoft.Extensions.Configuration/3.1.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "3.1.1"
-        },
-        "compile": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.dll": {}
-        }
-      },
-      "Microsoft.Extensions.Configuration.Abstractions/3.1.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Primitives": "3.1.1"
-        },
-        "compile": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Abstractions.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Abstractions.dll": {}
-        }
-      },
-      "Microsoft.Extensions.Primitives/3.1.1": {
-        "type": "package",
-        "compile": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.dll": {}
-        }
-      },
       "Microsoft.NETCore.Platforms/3.0.0": {
         "type": "package",
         "compile": {
@@ -1914,17 +1881,25 @@
       "ApplicationBusiness/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "FluentNHibernate": "2.1.2",
-          "Microsoft.Extensions.Configuration": "3.1.1",
-          "MySql.Data": "8.0.19",
-          "System.Data.SQLite": "1.0.112"
-        },
         "compile": {
           "bin/placeholder/ApplicationBusiness.dll": {}
         },
         "runtime": {
           "bin/placeholder/ApplicationBusiness.dll": {}
+        }
+      },
+      "ApplicationDal/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "ApplicationBusiness": "1.0.0",
+          "FluentNHibernate": "2.1.2"
+        },
+        "compile": {
+          "bin/placeholder/ApplicationDal.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ApplicationDal.dll": {}
         }
       }
     }
@@ -2084,54 +2059,6 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._"
-      ]
-    },
-    "Microsoft.Extensions.Configuration/3.1.1": {
-      "sha512": "LHbdc7ZBzKOqmvGpK1EkEqpFllPa3IOrEI7dIu+BZwr6A10zBpe2XpZHeNh87DGjEfHcAItwvh/Slah8tbnr7Q==",
-      "type": "package",
-      "path": "microsoft.extensions.configuration/3.1.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.dll",
-        "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.xml",
-        "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll",
-        "lib/netstandard2.0/Microsoft.Extensions.Configuration.xml",
-        "microsoft.extensions.configuration.3.1.1.nupkg.sha512",
-        "microsoft.extensions.configuration.nuspec"
-      ]
-    },
-    "Microsoft.Extensions.Configuration.Abstractions/3.1.1": {
-      "sha512": "Msu6IzxV486nNmsasJQXB/c44DiVz7FqXCjIBnvmG2M8NGaVDIQra1qff9cEEkhqa+dGH+jf3mdggm8w9eX7BQ==",
-      "type": "package",
-      "path": "microsoft.extensions.configuration.abstractions/3.1.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Abstractions.dll",
-        "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Abstractions.xml",
-        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll",
-        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.xml",
-        "microsoft.extensions.configuration.abstractions.3.1.1.nupkg.sha512",
-        "microsoft.extensions.configuration.abstractions.nuspec"
-      ]
-    },
-    "Microsoft.Extensions.Primitives/3.1.1": {
-      "sha512": "tC5Eo5DbJA+NgiIw26R5c97N02tFvtfqstUxqb/4qXPLXI2IAIWSMUkh/1c9Gw59TT9hNkLwlmLErSPlHgyJVQ==",
-      "type": "package",
-      "path": "microsoft.extensions.primitives/3.1.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.dll",
-        "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.xml",
-        "lib/netstandard2.0/Microsoft.Extensions.Primitives.dll",
-        "lib/netstandard2.0/Microsoft.Extensions.Primitives.xml",
-        "microsoft.extensions.primitives.3.1.1.nupkg.sha512",
-        "microsoft.extensions.primitives.nuspec"
       ]
     },
     "Microsoft.NETCore.Platforms/3.0.0": {
@@ -6639,11 +6566,17 @@
       "type": "project",
       "path": "../ApplicationBusiness/ApplicationBusiness.csproj",
       "msbuildProject": "../ApplicationBusiness/ApplicationBusiness.csproj"
+    },
+    "ApplicationDal/1.0.0": {
+      "type": "project",
+      "path": "../ApplicationDal/ApplicationDal.csproj",
+      "msbuildProject": "../ApplicationDal/ApplicationDal.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "ApplicationBusiness >= 1.0.0",
+      "ApplicationDal >= 1.0.0",
       "FluentNHibernate >= 2.1.2",
       "MySql.Data >= 8.0.19",
       "Newtonsoft.Json >= 12.0.3",
@@ -6682,6 +6615,9 @@
           "projectReferences": {
             "E:\\GitPerso\\TestUnitaire\\ApplicationBusiness\\ApplicationBusiness.csproj": {
               "projectPath": "E:\\GitPerso\\TestUnitaire\\ApplicationBusiness\\ApplicationBusiness.csproj"
+            },
+            "E:\\GitPerso\\TestUnitaire\\ApplicationDal\\ApplicationDal.csproj": {
+              "projectPath": "E:\\GitPerso\\TestUnitaire\\ApplicationDal\\ApplicationDal.csproj"
             }
           }
         }

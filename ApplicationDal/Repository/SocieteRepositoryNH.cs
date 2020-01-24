@@ -3,10 +3,11 @@ using System.Linq;
 using NHibernate;
 using ApplicationBusiness.Model;
 using System;
+using ApplicationBusiness.IDalManager.IRepositories;
 
 namespace ApplicationBusiness.DalManager.Repository
 {
-    public class SocieteRepositoryNH 
+    public class SocieteRepositoryNH : ISocieteRepository
     {
         private ISession _nhsession;
         public SocieteRepositoryNH(ISession nhsession) 
