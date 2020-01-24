@@ -34,7 +34,7 @@ namespace ApplicationApi.Exceptions
 
 
                 throw new HttpStatusCodeException(500,new JObject(
-                                                            new JProperty("CodeError", ex.CodeErreur),
+                                                            new JProperty("CodeError", ex.CodeErreur.ToString()),
                                                             new JProperty("Message", ex.Message),
                                                             new JProperty("Debug", ex.InnerException)));
             }

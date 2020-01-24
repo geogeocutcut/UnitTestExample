@@ -4,11 +4,15 @@ using Microsoft.Extensions.Configuration;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
 using ApplicationApi.DalManager.Mapping;
+using System.Collections.Generic;
+using ApplicationApi.DalManager.Repository;
 
 namespace ApplicationApi.DalManager
 {
     public class UnitOfWorkNH 
     {
+
+        private Dictionary<object, object> _repositories;
         private readonly object _lockObject = new object();
         private static ISessionFactory _sessionFactory;
 
@@ -33,8 +37,28 @@ namespace ApplicationApi.DalManager
             {
                 CreateSessionFactory();
             }
+            _repositories = new Dictionary<object, object>();
         }
-    
+
+        public TRepository GetRepository<TRepository>()
+        {
+            object repo = null;
+            if (_repositories.ContainsKey(typeof(TRepository)))
+            {
+                repo = _repositories[typeof(TRepository)];
+            }
+            else
+            {
+                if (typeof(TRepository) == typeof(SocieteRepositoryNH))
+                {
+                    repo = new SocieteRepositoryNH(NhSession);
+                    _repositories[typeof(TRepository)] = repo;
+                }
+            }
+            return (TRepository)repo;
+
+        }
+
         private void CreateSessionFactory()
         {
             lock (_lockObject)

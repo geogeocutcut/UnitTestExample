@@ -29,7 +29,6 @@ namespace ApplicationApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<UnitOfWorkNH>();
-            services.AddScoped<SocieteRepositoryNH>();
             services.AddControllers();
         }
 
